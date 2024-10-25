@@ -1,0 +1,71 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - "main"
+    paths-ignore:
+      - ".husky/**"
+      - ".vscode/**"
+      - "LICENSE"
+      - "*.md"
+      - "bumpver.toml"
+  pull_request:
+    paths-ignore:
+      - ".husky/**"
+      - ".vscode/**"
+      - "LICENSE"
+      - "*.md"
+      - "bumpver.toml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, '[skip build]') == false
+
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Install Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run biome migrate
+        run: pnpm biome migrate --write
+
+      - name: Run Build
+        run: pnpm run build
+
+      - name: Run Linter & Formatter
+        run: pnpm run lint
+
+      - name: Run Typescript check
+        run: pnpm run check
+
+      - name: Run Unit tests
+        run: pnpm run test:unit
+
+      - name: Commit changes
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_options: "--no-verify --signoff"
+          commit_message: "ci: apply formatting changes"

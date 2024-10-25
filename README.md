@@ -5,6 +5,12 @@ date-fns対応の日本向けの日付処理プラグイン
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![NPM Version](https://img.shields.io/npm/v/%40gahojin-inc%2Fdate-fns-japan?activeTab=versions)](https://www.npmjs.com/package/@gahojin-inc/date-fns-japan)
 
+## 機能
+
+### addJapan
+
+日本の民法(139〜143条(142条を除く))に沿った満了日時を算出する
+
 
 ## ライセンス
 
