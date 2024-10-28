@@ -12,10 +12,7 @@ const banner = `/**
 
 export default defineConfig((options) => {
   const commonOptions: Partial<Options> = {
-    entry: [
-      'src/index.ts',
-      'src/addJapan/index.ts',
-    ],
+    entry: ['src/index.ts', 'src/addJapan/index.ts'],
     sourcemap: true,
     treeshake: 'recommended',
     banner: {
