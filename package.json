@@ -37,6 +37,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/cjs/index.cjs"
+    },
+    "./addJapan": {
+      "types": "./dist/addJapan/index.d.ts",
+      "import": "./dist/addJapan/index.mjs",
+      "require": "./dist/cjs/addJapan/index.cjs"
     }
   },
   "dependencies": {
