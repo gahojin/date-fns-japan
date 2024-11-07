@@ -12,9 +12,9 @@ import { type DateArg, differenceInCalendarDays } from 'date-fns'
  *
  * @example
  * // Is 10 July 1989 after 11 February 1987?
- * const result = isAfterDate(new Date(1989, 6, 10), new Date(1987, 1, 11))
+ * const result = isAfterDay(new Date(1989, 6, 10), new Date(1987, 1, 11))
  * //=> true
  */
-export function isAfterDate(date: DateArg<Date> & {}, dateToCompare: DateArg<Date> & {}): boolean {
+export function isAfterDay(date: DateArg<Date> & {}, dateToCompare: DateArg<Date> & {}): boolean {
   return differenceInCalendarDays(date, dateToCompare) > 0
 }
