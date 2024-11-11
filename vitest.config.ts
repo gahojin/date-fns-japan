@@ -7,6 +7,9 @@ const config: UserConfigExport = {
     environment: 'node',
     globals: true,
     setupFiles: ['./vitest.setup.ts'],
+    benchmark: {
+      include: ['src/**/*.bench.ts'],
+    },
   },
 }
 
