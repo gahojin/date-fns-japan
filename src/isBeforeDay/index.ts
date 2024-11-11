@@ -1,4 +1,4 @@
-import { type DateArg, differenceInCalendarDays } from 'date-fns'
+import { type DateArg, startOfDay } from 'date-fns'
 
 /**
  * @name isBeforeDay
@@ -16,5 +16,7 @@ import { type DateArg, differenceInCalendarDays } from 'date-fns'
  * //=> false
  */
 export function isBeforeDay(date: DateArg<Date> & {}, dateToCompare: DateArg<Date> & {}): boolean {
-  return differenceInCalendarDays(date, dateToCompare) < 0
+  const a = startOfDay(date)
+  const b = startOfDay(dateToCompare)
+  return a < b
 }

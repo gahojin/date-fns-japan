@@ -26,6 +26,7 @@
     "check": "tsc",
     "test": "vitest --watch",
     "test:unit": "vitest --passWithNoTests --run --coverage",
+    "bench": "vitest bench",
     "ncu": "npm-check-updates -u"
   },
   "main": "dist/cjs/index.cjs",
