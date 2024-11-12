@@ -53,6 +53,11 @@
       "types": "./dist/isBeforeDay/index.d.ts",
       "import": "./dist/isBeforeDay/index.mjs",
       "require": "./dist/cjs/isBeforeDay/index.cjs"
+    },
+    "./normalizeDuration": {
+      "types": "./dist/normalizeDuration/index.d.ts",
+      "import": "./dist/normalizeDuration/index.mjs",
+      "require": "./dist/cjs/normalizeDuration/index.cjs"
     }
   },
   "dependencies": {
