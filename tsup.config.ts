@@ -1,14 +1,4 @@
 import { type Options, defineConfig } from 'tsup'
-import pkg from './package.json'
-
-const banner = `/**
- * ${pkg.name}
- * ${pkg.description}
- * @version: ${pkg.version}
- * @author: ${pkg.author}
- * @license: ${pkg.license}
- **/
-`
 
 export default defineConfig((options) => {
   const commonOptions: Partial<Options> = {
@@ -16,9 +6,6 @@ export default defineConfig((options) => {
     sourcemap: true,
     treeshake: 'smallest',
     dts: true,
-    banner: {
-      js: banner,
-    },
     ...options,
   }
 
