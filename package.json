@@ -24,45 +24,76 @@
     "prepublish": "pnpm run build",
     "lint": "biome check --write .",
     "check": "tsc",
+    "check:packagejson": "pnpm dlx @arethetypeswrong/cli --pack .",
     "test": "vitest --watch",
     "test:unit": "vitest --passWithNoTests --run --coverage",
     "bench": "vitest bench",
     "ncu": "npm-check-updates -u"
   },
+  "browser": "dist/index",
   "main": "dist/cjs/index.cjs",
   "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/cjs/index.cjs"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.cts",
+        "require": "./dist/cjs/index.cjs"
+      }
     },
     "./addJapan": {
-      "types": "./dist/addJapan/index.d.ts",
-      "import": "./dist/addJapan/index.mjs",
-      "require": "./dist/cjs/addJapan/index.cjs"
+      "import": {
+        "types": "./dist/addJapan/index.d.ts",
+        "default": "./dist/addJapan/index.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/addJapan/index.d.cts",
+        "require": "./dist/cjs/addJapan/index.cjs"
+      }
     },
     "./isAfterDay": {
-      "types": "./dist/isAfterDay/index.d.ts",
-      "import": "./dist/isAfterDay/index.mjs",
-      "require": "./dist/cjs/isAfterDay/index.cjs"
+      "import": {
+        "types": "./dist/isAfterDay/index.d.ts",
+        "default": "./dist/isAfterDay/index.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/isAfterDay/index.d.cts",
+        "require": "./dist/cjs/isAfterDay/index.cjs"
+      }
     },
     "./isBeforeDay": {
-      "types": "./dist/isBeforeDay/index.d.ts",
-      "import": "./dist/isBeforeDay/index.mjs",
-      "require": "./dist/cjs/isBeforeDay/index.cjs"
+      "import": {
+        "types": "./dist/isBeforeDay/index.d.ts",
+        "default": "./dist/isBeforeDay/index.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/isBeforeDay/index.d.cts",
+        "require": "./dist/cjs/isBeforeDay/index.cjs"
+      }
     },
     "./isWithinGtfsCalendar": {
-      "types": "./dist/isWithinGtfsCalendar/index.d.ts",
-      "import": "./dist/isWithinGtfsCalendar/index.mjs",
-      "require": "./dist/cjs/isWithinGtfsCalendar/index.cjs"
+      "import": {
+        "types": "./dist/isWithinGtfsCalendar/index.d.ts",
+        "default": "./dist/isWithinGtfsCalendar/index.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/isWithinGtfsCalendar/index.d.cts",
+        "require": "./dist/cjs/isWithinGtfsCalendar/index.cjs"
+      }
     },
     "./normalizeDuration": {
-      "types": "./dist/normalizeDuration/index.d.ts",
-      "import": "./dist/normalizeDuration/index.mjs",
-      "require": "./dist/cjs/normalizeDuration/index.cjs"
+      "import": {
+        "types": "./dist/normalizeDuration/index.d.ts",
+        "default": "./dist/normalizeDuration/index.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/normalizeDuration/index.d.cts",
+        "require": "./dist/cjs/normalizeDuration/index.cjs"
+      }
     }
   },
   "dependencies": {

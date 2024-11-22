@@ -12,16 +12,10 @@ const banner = `/**
 
 export default defineConfig((options) => {
   const commonOptions: Partial<Options> = {
-    entry: [
-      'src/index.ts',
-      'src/addJapan/index.ts',
-      'src/isAfterDay/index.ts',
-      'src/isBeforeDay/index.ts',
-      'src/isWithinGtfsCalendar/index.ts',
-      'src/normalizeDuration/index.ts',
-    ],
+    entry: ['src/**/index.ts'],
     sourcemap: true,
-    treeshake: 'recommended',
+    treeshake: 'smallest',
+    dts: true,
     banner: {
       js: banner,
     },
@@ -33,7 +27,6 @@ export default defineConfig((options) => {
       ...commonOptions,
       format: ['esm'],
       outExtension: () => ({ js: '.mjs' }),
-      dts: true,
       clean: true,
     },
     {
