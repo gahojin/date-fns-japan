@@ -10,7 +10,8 @@ import type { Duration } from 'date-fns'
  * @returns The normalized duration
  *
  * @example
- * normalizeDuration({ days: 30, hours: 24 }) // { days: 31 }
+ * const result = normalizeDuration({ days: 30, hours: 24 })
+ * //=> { days: 31 }
  */
 export function normalizeDuration(duration: Duration): Duration {
   // 秒
