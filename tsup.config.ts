@@ -14,7 +14,7 @@ export default defineConfig((options) => {
   const commonOptions: Partial<Options> = {
     entry: ['src/**/index.ts'],
     sourcemap: true,
-    treeshake: 'recommended',
+    treeshake: 'smallest',
     banner: {
       js: banner,
     },
