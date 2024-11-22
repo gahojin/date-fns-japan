@@ -11,6 +11,42 @@ date-fns対応の日本向けの日付処理プラグイン
 
 日本の民法(139〜143条(142条を除く))に沿った満了日時を算出する
 
+```javascript
+const result = addJapan(new Date(2020, 7, 31, 10, 19, 50), {
+  years: 1,
+  months: 3,
+  weeks: 4,
+  days: 3,
+})
+//=> Sat Jan 01 2022 00:00:00
+```
+
+### isAfterDay
+
+指定された日が、比較対象日より後の日か返す
+
+```javascript
+const result = isAfterDay(new Date(1989, 6, 10), new Date(1987, 1, 11))
+//=> true
+```
+
+### isBeforeDay
+
+指定された日が、比較対象日より前の日か返す
+
+```javascript
+const result = isBeforeDay(new Date(1989, 6, 10), new Date(1987, 1, 11))
+//=> false
+```
+
+### normalizeDuration
+
+Duration型を正規化する (24時間を1日にする等)
+
+```javascript
+const result = normalizeDuration({ days: 30, hours: 24 })
+//=> { days: 31 }
+```
 
 ## ライセンス
 
