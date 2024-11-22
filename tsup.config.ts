@@ -12,7 +12,14 @@ const banner = `/**
 
 export default defineConfig((options) => {
   const commonOptions: Partial<Options> = {
-    entry: ['src/index.ts', 'src/addJapan/index.ts', 'src/isAfterDay/index.ts', 'src/isBeforeDay/index.ts', 'src/normalizeDuration/index.ts'],
+    entry: [
+      'src/index.ts',
+      'src/addJapan/index.ts',
+      'src/isAfterDay/index.ts',
+      'src/isBeforeDay/index.ts',
+      'src/isWithinGtfsCalendar/index.ts',
+      'src/normalizeDuration/index.ts',
+    ],
     sourcemap: true,
     treeshake: 'recommended',
     banner: {
