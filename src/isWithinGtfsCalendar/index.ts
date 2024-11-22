@@ -1,5 +1,6 @@
 import { isAfterDay } from '@/isAfterDay'
 import { isBeforeDay } from '@/isBeforeDay'
+import type { GtfsCalendar } from '@/types'
 import type { ContextOptions, DateArg } from 'date-fns'
 import { getDay } from 'date-fns/getDay'
 import { isSameDay } from 'date-fns/isSameDay'
@@ -8,31 +9,6 @@ import { isSameDay } from 'date-fns/isSameDay'
  * The {@link isWithinInterval} function options.
  */
 export interface IsWithinGtfsCalendarOptions extends ContextOptions<Date> {}
-
-export interface GtfsCalendar {
-  /** 期間開始日 */
-  startDate: Date
-  /** 期間終了日 */
-  endDate: Date
-  /** 月曜日 */
-  mon?: boolean | undefined
-  /** 火曜日 */
-  tue?: boolean | undefined
-  /** 水曜日 */
-  wed?: boolean | undefined
-  /** 木曜日 */
-  thu?: boolean | undefined
-  /** 金曜日 */
-  fri?: boolean | undefined
-  /** 土曜日 */
-  sat?: boolean | undefined
-  /** 日曜日 */
-  sun?: boolean | undefined
-  /** 対象日 (期間内の日付であること) */
-  includes?: Date[] | undefined
-  /** 対象外日 (期間内の日付であること) */
-  excludes?: Date[] | undefined
-}
 
 /**
  * @name isWithinGtfsCalendar
