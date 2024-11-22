@@ -1,4 +1,5 @@
-import { type DateArg, startOfDay } from 'date-fns'
+import type { DateArg } from 'date-fns'
+import { startOfDay } from 'date-fns/startOfDay'
 
 /**
  * @name isAfterDay
