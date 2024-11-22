@@ -1,3 +1,5 @@
+import { TZDate } from '@date-fns/tz'
+import { isSameDay } from 'date-fns'
 import { isBeforeDay } from './index'
 
 describe('isBeforeDay', () => {
@@ -16,5 +18,15 @@ describe('isBeforeDay', () => {
     expect(isBeforeDay(new Date(2024, 10, 7, 10, 0, 0), new Date(2024, 10, 7, 0, 0, 0))).toBeFalse()
     expect(isBeforeDay(new Date(2024, 10, 7, 10, 0, 0), new Date(2024, 10, 7, 23, 59, 59))).toBeFalse()
     expect(isBeforeDay(new Date(2024, 10, 7, 10, 0, 0), new Date(2024, 10, 8, 0, 0, 0))).toBeTrue()
+  })
+
+  it('異なるタイムゾーン', () => {
+    const dateLeft = new TZDate(2024, 5, 7, 22, 'Asia/Singapore') // 2024-06-07T22:00:00+08:00
+    const dateRight = new TZDate(2024, 5, 6, 23, 'America/New_York') // 2024-06-06T23:00:00-04:00
+
+    expect(isSameDay(dateLeft, dateRight)).toBe(true)
+
+    expect(isBeforeDay(dateLeft, dateRight)).toBe(false)
+    expect(isBeforeDay(dateRight, dateLeft)).toBe(true)
   })
 })
