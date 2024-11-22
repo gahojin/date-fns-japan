@@ -15,6 +15,7 @@ export default defineConfig((options) => {
     entry: ['src/**/index.ts'],
     sourcemap: true,
     treeshake: 'smallest',
+    dts: true,
     banner: {
       js: banner,
     },
@@ -26,7 +27,6 @@ export default defineConfig((options) => {
       ...commonOptions,
       format: ['esm'],
       outExtension: () => ({ js: '.mjs' }),
-      dts: true,
       clean: true,
     },
     {
