@@ -1,5 +1,11 @@
-import type { DateArg } from 'date-fns'
+import { normalizeDates } from '@/_lib/normalize'
+import type { ContextOptions, DateArg } from 'date-fns'
 import { startOfDay } from 'date-fns/startOfDay'
+
+/**
+ * The {@link isBeforeDay} function options.
+ */
+export interface IsBeforeDayOptions extends ContextOptions<Date> {}
 
 /**
  * @name isBeforeDay
@@ -16,8 +22,7 @@ import { startOfDay } from 'date-fns/startOfDay'
  * const result = isBeforeDay(new Date(1989, 6, 10), new Date(1987, 1, 11))
  * //=> false
  */
-export function isBeforeDay(date: DateArg<Date> & {}, dateToCompare: DateArg<Date> & {}): boolean {
-  const a = startOfDay(date)
-  const b = startOfDay(dateToCompare)
-  return a < b
+export function isBeforeDay(date: DateArg<Date> & {}, dateToCompare: DateArg<Date> & {}, options?: IsBeforeDayOptions | undefined): boolean {
+  const [dateLeft_, dateRight_] = normalizeDates(options?.in, date, dateToCompare)
+  return +startOfDay(dateLeft_) < +startOfDay(dateRight_)
 }
