@@ -5,6 +5,7 @@ export default defineConfig((options) => {
     entry: ['src/**/index.ts'],
     sourcemap: true,
     treeshake: 'smallest',
+    minifySyntax: true,
     dts: true,
     ...options,
   }
