@@ -15,21 +15,21 @@ import type { Duration } from 'date-fns'
  */
 export function normalizeDuration(duration: Duration): Duration {
   // 秒
-  let seconds: number = duration.seconds ?? 0
+  let seconds = typeof duration.seconds === 'number' ? duration.seconds : 0
   let minutes = ~~(seconds / 60)
   seconds -= minutes * 60
   // 分
-  minutes += duration.minutes ?? 0
+  minutes += typeof duration.minutes === 'number' ? duration.minutes : 0
   let hours = ~~(minutes / 60)
   minutes -= hours * 60
   // 時
-  hours += duration.hours ?? 0
+  hours += typeof duration.hours === 'number' ? duration.hours : 0
   let days = ~~(hours / 24)
   hours -= days * 24
-  days += duration.days ?? 0
+  days += typeof duration.days === 'number' ? duration.days : 0
 
   // 月
-  let months: number = duration.months ?? 0
+  let months = typeof duration.months === 'number' ? duration.months : 0
   let years = ~~(months / 12)
   months -= years * 12
   years += duration.years ?? 0

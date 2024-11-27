@@ -1,5 +1,6 @@
 import { TZDate } from '@date-fns/tz'
-import { isSameDay } from 'date-fns'
+import { fc } from '@fast-check/vitest'
+import { differenceInCalendarDays, isSameDay, startOfDay } from 'date-fns'
 import { isAfterDay } from './index'
 
 describe('isAfterDay', () => {
@@ -28,5 +29,14 @@ describe('isAfterDay', () => {
 
     expect(isAfterDay(dateLeft, dateRight)).toBe(true)
     expect(isAfterDay(dateRight, dateLeft)).toBe(false)
+  })
+
+  it('プロパティテスト', () => {
+    fc.assert(
+      fc.property(fc.date(), fc.date(), (a, b) => {
+        expect(isAfterDay(a, b)).toBe(differenceInCalendarDays(b, a) < 0)
+        expect(isAfterDay(a, b)).toBe(startOfDay(a) > startOfDay(b))
+      }),
+    )
   })
 })
