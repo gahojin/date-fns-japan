@@ -35,11 +35,11 @@ export function isWithinGtfsCalendar(date: DateArg<Date> & {}, calendar: GtfsCal
     return false
   }
   // 対象外日
-  if (calendar?.excludes?.some((compareDate) => isSameDay(date, compareDate, options))) {
+  if (calendar.excludes?.some((compareDate) => isSameDay(date, compareDate, options))) {
     return false
   }
   // 対象日
-  if (calendar?.includes?.some((compareDate) => isSameDay(date, compareDate, options))) {
+  if (calendar.includes?.some((compareDate) => isSameDay(date, compareDate, options))) {
     return true
   }
   // 曜日

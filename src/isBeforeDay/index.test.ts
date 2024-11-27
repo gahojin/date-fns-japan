@@ -1,5 +1,6 @@
 import { TZDate } from '@date-fns/tz'
-import { isSameDay } from 'date-fns'
+import { fc } from '@fast-check/vitest'
+import { differenceInCalendarDays, isSameDay, startOfDay } from 'date-fns'
 import { isBeforeDay } from './index'
 
 describe('isBeforeDay', () => {
@@ -28,5 +29,14 @@ describe('isBeforeDay', () => {
 
     expect(isBeforeDay(dateLeft, dateRight)).toBe(false)
     expect(isBeforeDay(dateRight, dateLeft)).toBe(true)
+  })
+
+  it('プロパティテスト', () => {
+    fc.assert(
+      fc.property(fc.date(), fc.date(), (a, b) => {
+        expect(isBeforeDay(a, b)).toBe(differenceInCalendarDays(b, a) > 0)
+        expect(isBeforeDay(a, b)).toBe(startOfDay(a) < startOfDay(b))
+      }),
+    )
   })
 })
