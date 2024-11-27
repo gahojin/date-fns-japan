@@ -6,7 +6,7 @@ import { getDay } from 'date-fns/getDay'
 import { isSameDay } from 'date-fns/isSameDay'
 
 /**
- * The {@link isWithinInterval} function options.
+ * The {@link isWithinGtfsCalendar} function options.
  */
 export interface IsWithinGtfsCalendarOptions extends ContextOptions<Date> {}
 

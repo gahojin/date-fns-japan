@@ -1,9 +1,14 @@
-import type { AddOptions, DateArg, Duration } from 'date-fns'
+import type { ContextOptions, DateArg, Duration } from 'date-fns'
 import { addDays } from 'date-fns/addDays'
 import { addMonths } from 'date-fns/addMonths'
 import { constructFrom } from 'date-fns/constructFrom'
 import { startOfDay } from 'date-fns/startOfDay'
 import { toDate } from 'date-fns/toDate'
+
+/**
+ * The {@link addJapan} function options.
+ */
+export interface AddJapanOptions<DateType extends Date = Date> extends ContextOptions<DateType> {}
 
 /**
  * @name addJapan
@@ -44,7 +49,7 @@ import { toDate } from 'date-fns/toDate'
 export function addJapan<DateType extends Date, ResultDate extends Date = DateType>(
   date: DateArg<DateType>,
   duration: Duration,
-  options?: AddOptions<ResultDate> | undefined,
+  options?: AddJapanOptions<ResultDate> | undefined,
 ): ResultDate {
   const { years = 0, months = 0, weeks = 0, days = 0, hours = 0, minutes = 0, seconds = 0 } = duration
 
