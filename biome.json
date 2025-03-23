@@ -54,7 +54,7 @@
     "ignore": ["jest-extended.d.ts"]
   },
   "files": {
-    "ignore": ["dist/*", "build/*", "coverage/*"]
+    "ignore": ["dist/*", "build/*", "coverage/*", ".tsup/*"]
   },
   "formatter": {
     "enabled": true,
