@@ -69,7 +69,7 @@ describe('isWithinGtfsCalendar', () => {
 
   it('プロパティテスト', () => {
     fc.assert(
-      fc.property(fc.date(), fc.date(), fc.date(), (targetDate, startDate, endDate) => {
+      fc.property(fc.date({ noInvalidDate: true }), fc.date({ noInvalidDate: true }), fc.date({ noInvalidDate: true }), (targetDate, startDate, endDate) => {
         // 期間チェックが行われること (無効日の場合、期間内として扱われる)
         const allWeeksCondition = { startDate, endDate, mon: true, tue: true, wed: true, thu: true, fri: true, sat: true, sun: true }
         expect(isWithinGtfsCalendar(targetDate, allWeeksCondition)).not.toBe(
@@ -103,5 +103,37 @@ describe('isWithinGtfsCalendar', () => {
         expect(isWithinGtfsCalendar(targetDate, excludeCondition)).toBe(!isValid(startOfDay(targetDate)))
       }),
     )
+  })
+
+  it('無効日', () => {
+    const targetDate = new Date(Number.NaN)
+    const startDate = new Date("1970-01-01T00:00:00.000Z")
+    const endDate = new Date("2099-12-31T23:59:59.999Z")
+
+    const allWeeksCondition = { startDate, endDate, mon: true, tue: true, wed: true, thu: true, fri: true, sat: true, sun: true }
+    expect(isWithinGtfsCalendar(targetDate, allWeeksCondition)).toBeFalse()
+
+    // 曜日チェックが行われること
+    const weekCondition = { startDate, endDate, mon: true, tue: true, wed: true, thu: true, fri: true, sat: true, sun: true }
+    expect(isWithinGtfsCalendar(targetDate, weekCondition)).toBeFalse()
+
+    // 対象日チェックが行われること (無効日の場合、対象日とならない)
+    const includeCondition = { startDate, endDate, includes: [targetDate] }
+    expect(isWithinGtfsCalendar(targetDate, includeCondition)).toBeFalse()
+
+    // 対象外日チェックが行われること (無効日の場合、対象外日とならない)
+    const excludeCondition = {
+      startDate,
+      endDate,
+      excludes: [targetDate],
+      mon: true,
+      tue: true,
+      wed: true,
+      thu: true,
+      fri: true,
+      sat: true,
+      sun: true,
+    }
+    expect(isWithinGtfsCalendar(targetDate, excludeCondition)).toBeFalse()
   })
 })

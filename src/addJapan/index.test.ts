@@ -98,4 +98,8 @@ describe('addJapan', () => {
     expect(addJapanDuration('2024-06-01T18:00:00', 'PT30H')).toEqual(generateDate('2024-06-03T00:00:00'))
     expect(addJapanDuration('2024-06-01', 'P2Y')).toEqual(generateDate('2026-06-01T00:00:00'))
   })
+
+  it('無効日', () => {
+    expect(addJapan(new Date(Number.NaN), parseDuration('P1M'))).toEqual(new Date(Number.NaN))
+  })
 })
