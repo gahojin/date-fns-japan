@@ -33,10 +33,16 @@ describe('isBeforeDay', () => {
 
   it('プロパティテスト', () => {
     fc.assert(
-      fc.property(fc.date(), fc.date(), (a, b) => {
+      fc.property(fc.date({ noInvalidDate: true }), fc.date({ noInvalidDate: true }), (a, b) => {
         expect(isBeforeDay(a, b)).toBe(differenceInCalendarDays(b, a) > 0)
         expect(isBeforeDay(a, b)).toBe(startOfDay(a) < startOfDay(b))
       }),
     )
+  })
+
+  it('無効日', () => {
+    // 常にfalseが返ること
+    expect(isBeforeDay(new Date(Number.NaN), new Date())).toBeFalse()
+    expect(isBeforeDay(new Date(), new Date(Number.NaN))).toBeFalse()
   })
 })
