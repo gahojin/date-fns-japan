@@ -112,6 +112,7 @@
     "husky": "9.1.7",
     "iso8601-duration": "2.1.2",
     "jest-extended": "4.0.2",
+    "lefthook": "1.11.7",
     "npm-check-updates": "17.1.16",
     "rimraf": "6.0.1",
     "tsup": "8.4.0",
@@ -122,16 +123,11 @@
   "peerDependencies": {
     "date-fns": "^4.0.0"
   },
-  "packageManager": "pnpm@10.4.1",
+  "packageManager": "pnpm@10.8.0",
   "engines": {
     "node": ">=18.x",
     "npm": "use pnpm",
     "pnpm": ">=9.x",
     "yarn": "use pnpm"
-  },
-  "pnpm": {
-    "overrides": {
-      "esbuild": "$esbuild"
-    }
   }
 }
