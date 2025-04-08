@@ -132,4 +132,7 @@ dist
 # Turborepo
 .turbo/
 
+# Lefthook
+lefthook-local.*
+
 .DS_Store
