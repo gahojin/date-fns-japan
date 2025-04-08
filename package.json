@@ -112,7 +112,7 @@
     "husky": "9.1.7",
     "iso8601-duration": "2.1.2",
     "jest-extended": "4.0.2",
-    "lefthook": "1.11.7",
+    "lefthook": "1.11.8",
     "npm-check-updates": "17.1.16",
     "rimraf": "6.0.1",
     "tsup": "8.4.0",
