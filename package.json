@@ -19,7 +19,7 @@
   "scripts": {
     "preinstall": "pnpm dlx only-allow pnpm",
     "clean": "rimraf dist",
-    "build": "tsup",
+    "build": "pkgroll --clean-dist --sourcemap",
     "prepublish": "pnpm run build",
     "lint": "biome check --write .",
     "check": "tsc",
@@ -29,69 +29,68 @@
     "bench": "vitest bench",
     "ncu": "npm-check-updates -u"
   },
-  "main": "dist/cjs/index.cjs",
+  "main": "dist/index.cjs",
   "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "types": "dist/index.d.cts",
   "exports": {
-    "./package.json": "./package.json",
     ".": {
       "import": {
-        "types": "./dist/index.d.ts",
+        "types": "./dist/index.d.mts",
         "default": "./dist/index.mjs"
       },
       "require": {
-        "types": "./dist/cjs/index.d.cts",
-        "require": "./dist/cjs/index.cjs"
+        "types": "./dist/index.d.cts",
+        "require": "./dist/index.cjs"
       }
     },
     "./addJapan": {
       "import": {
-        "types": "./dist/addJapan/index.d.ts",
+        "types": "./dist/addJapan/index.d.mts",
         "default": "./dist/addJapan/index.mjs"
       },
       "require": {
-        "types": "./dist/cjs/addJapan/index.d.cts",
-        "require": "./dist/cjs/addJapan/index.cjs"
+        "types": "./dist/addJapan/index.d.cts",
+        "require": "./dist/addJapan/index.cjs"
       }
     },
     "./isAfterDay": {
       "import": {
-        "types": "./dist/isAfterDay/index.d.ts",
+        "types": "./dist/isAfterDay/index.d.mts",
         "default": "./dist/isAfterDay/index.mjs"
       },
       "require": {
-        "types": "./dist/cjs/isAfterDay/index.d.cts",
-        "require": "./dist/cjs/isAfterDay/index.cjs"
+        "types": "./dist/isAfterDay/index.d.cts",
+        "require": "./dist/isAfterDay/index.cjs"
       }
     },
     "./isBeforeDay": {
       "import": {
-        "types": "./dist/isBeforeDay/index.d.ts",
+        "types": "./dist/isBeforeDay/index.d.mts",
         "default": "./dist/isBeforeDay/index.mjs"
       },
       "require": {
-        "types": "./dist/cjs/isBeforeDay/index.d.cts",
-        "require": "./dist/cjs/isBeforeDay/index.cjs"
+        "types": "./dist/isBeforeDay/index.d.cts",
+        "require": "./dist/isBeforeDay/index.cjs"
       }
     },
     "./isWithinGtfsCalendar": {
       "import": {
-        "types": "./dist/isWithinGtfsCalendar/index.d.ts",
+        "types": "./dist/isWithinGtfsCalendar/index.d.mts",
         "default": "./dist/isWithinGtfsCalendar/index.mjs"
       },
       "require": {
-        "types": "./dist/cjs/isWithinGtfsCalendar/index.d.cts",
-        "require": "./dist/cjs/isWithinGtfsCalendar/index.cjs"
+        "types": "./dist/isWithinGtfsCalendar/index.d.cts",
+        "require": "./dist/isWithinGtfsCalendar/index.cjs"
       }
     },
     "./normalizeDuration": {
       "import": {
-        "types": "./dist/normalizeDuration/index.d.ts",
+        "types": "./dist/normalizeDuration/index.d.mts",
         "default": "./dist/normalizeDuration/index.mjs"
       },
       "require": {
-        "types": "./dist/cjs/normalizeDuration/index.d.cts",
-        "require": "./dist/cjs/normalizeDuration/index.cjs"
+        "types": "./dist/normalizeDuration/index.d.cts",
+        "require": "./dist/normalizeDuration/index.cjs"
       }
     }
   },
@@ -112,8 +111,8 @@
     "jest-extended": "4.0.2",
     "lefthook": "1.11.10",
     "npm-check-updates": "17.1.18",
+    "pkgroll": "2.12.1",
     "rimraf": "6.0.1",
-    "tsup": "8.4.0",
     "typescript": "5.8.3",
     "vite-tsconfig-paths": "5.1.4",
     "vitest": "3.1.1"
