@@ -42,9 +42,6 @@ importers:
       esbuild:
         specifier: 0.25.2
         version: 0.25.2
-      husky:
-        specifier: 9.1.7
-        version: 9.1.7
       iso8601-duration:
         specifier: 2.1.2
         version: 2.1.2
@@ -993,11 +990,6 @@ packages:
 
   html-escaper@2.0.2:
     resolution: {integrity: sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==}
-
-  husky@9.1.7:
-    resolution: {integrity: sha512-5gs5ytaNjBrh5Ow3zrvdUUY+0VxIuWVL4i9irt6friV+BqdCfmV11CQTWMiBYWHbXhco+J1kHfTOUkePhCDvMA==}
-    engines: {node: '>=18'}
-    hasBin: true
 
   import-fresh@3.3.1:
     resolution: {integrity: sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ==}
@@ -2511,8 +2503,6 @@ snapshots:
   highlight.js@10.7.3: {}
 
   html-escaper@2.0.2: {}
-
-  husky@9.1.7: {}
 
   import-fresh@3.3.1:
     dependencies:
