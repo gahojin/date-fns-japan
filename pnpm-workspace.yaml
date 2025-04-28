@@ -1,9 +1,7 @@
-overrides:
-  esbuild: $esbuild
-
 onlyBuiltDependencies:
-  - esbuild
   - lefthook
 
 ignoredBuiltDependencies:
   - '@biomejs/biome'
+  - esbuild
+  - rolldown
