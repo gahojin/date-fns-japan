@@ -1,5 +1,5 @@
-import { normalizeDuration } from '@/normalizeDuration'
 import { bench, describe } from 'vitest'
+import { normalizeDuration } from '../normalizeDuration'
 
 describe('benchmark: normalizeDuration', () => {
   bench('example', () => {

@@ -27,6 +27,7 @@
         "noExportedImports": "off",
         "noSecrets": "off",
         "useExplicitType": "off",
+        "useImportRestrictions": "off",
         "useStrictMode": "off"
       },
       "style": {

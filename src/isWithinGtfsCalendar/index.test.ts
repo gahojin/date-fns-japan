@@ -1,6 +1,6 @@
-import type { GtfsCalendar } from '@/types'
 import { fc } from '@fast-check/vitest'
 import { getDay, isValid, startOfDay } from 'date-fns'
+import type { GtfsCalendar } from '../types'
 import { isWithinGtfsCalendar } from './index'
 
 const setWeek = (condition: GtfsCalendar, week: number, value?: boolean) => {
