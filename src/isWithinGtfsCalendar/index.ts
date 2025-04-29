@@ -1,9 +1,9 @@
-import { isAfterDay } from '@/isAfterDay'
-import { isBeforeDay } from '@/isBeforeDay'
-import type { GtfsCalendar } from '@/types'
 import type { ContextOptions, DateArg } from 'date-fns'
 import { getDay } from 'date-fns/getDay'
 import { isSameDay } from 'date-fns/isSameDay'
+import { isAfterDay } from '../isAfterDay'
+import { isBeforeDay } from '../isBeforeDay'
+import type { GtfsCalendar } from '../types'
 
 /**
  * The {@link isWithinGtfsCalendar} function options.
