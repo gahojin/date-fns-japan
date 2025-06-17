@@ -10,8 +10,12 @@
     "type": "git",
     "url": "https://github.com/gahojin/date-fns-japan.git"
   },
-  "files": ["dist"],
-  "keywords": ["date-fns"],
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "date-fns"
+  ],
   "publishConfig": {
     "access": "public",
     "provenance": true
