@@ -112,7 +112,7 @@
     "date-fns": "4.1.0",
     "iso8601-duration": "2.1.2",
     "jest-extended": "6.0.0",
-    "lefthook": "1.12.1",
+    "lefthook": "1.12.2",
     "npm-check-updates": "18.0.1",
     "rimraf": "6.0.1",
     "rolldown": "1.0.0-beta.26",
