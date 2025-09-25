@@ -123,5 +123,13 @@
   },
   "peerDependencies": {
     "date-fns": "^4.0.0"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "esbuild"
+    ],
+    "onlyBuiltDependencies": [
+      "lefthook"
+    ]
   }
 }
