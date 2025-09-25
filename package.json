@@ -113,7 +113,7 @@
     "iso8601-duration": "2.1.2",
     "jest-extended": "6.0.0",
     "lefthook": "1.13.1",
-    "npm-check-updates": "18.1.1",
+    "npm-check-updates": "18.2.1",
     "rimraf": "6.0.1",
     "rolldown": "1.0.0-beta.38",
     "typescript": "5.9.2",
