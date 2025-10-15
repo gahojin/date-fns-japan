@@ -70,7 +70,7 @@ export function addJapan<DateType extends Date, ResultDate extends Date = DateTy
   if (!existsAppropriateDate) {
     // 応当日がない場合、翌日にする
     // 2020/08/31に1ヶ月加算の場合、addMonthsでは2020/09/30(その月の月末)が返ってくる
-    // 満了日時を2020/10/01 24時とするため、+1日(翌日)とする (民法第143条)
+    // 満了日時を2020/09/30 24時とするため、+1日(翌日)とする (民法第143条)
     dateWithMonths = addDays(dateWithMonths, 1)
   }
 
