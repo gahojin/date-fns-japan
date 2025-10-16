@@ -21,7 +21,6 @@
     "provenance": true
   },
   "scripts": {
-    "preinstall": "pnpm dlx only-allow pnpm",
     "clean": "rimraf dist",
     "prebuild": "rimraf dist",
     "build": "rolldown -c",
