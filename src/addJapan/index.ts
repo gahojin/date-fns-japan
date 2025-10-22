@@ -8,7 +8,9 @@ import { toDate } from 'date-fns/toDate'
 /**
  * The {@link addJapan} function options.
  */
-export interface AddJapanOptions<DateType extends Date = Date> extends ContextOptions<DateType> {}
+export interface AddJapanOptions<DateType extends Date = Date> extends ContextOptions<DateType> {
+  readonly excludeStartDate?: boolean | null
+}
 
 /**
  * @name addJapan
@@ -52,16 +54,24 @@ export function addJapan<DateType extends Date, ResultDate extends Date = DateTy
   options?: AddJapanOptions<ResultDate> | undefined,
 ): ResultDate {
   const { years = 0, months = 0, weeks = 0, days = 0, hours = 0, minutes = 0, seconds = 0 } = duration
+  let { excludeStartDate } = options || {}
 
   let _date = toDate(date, options?.in)
   let dateWithMonths: ResultDate
 
   // 民法139条 時間により期間を定めた時は、その期間は、即時から起算する
   if (hours === 0 && minutes === 0 && seconds === 0) {
-    // 民法第140条により、起算日を算出 (初日不算入の原則により、翌日から起算する)
-    // 00:00:00の場合、初日算入する(民法第140条ただし書)
-    const isStartOfDay = _date.getHours() === 0 && _date.getMinutes() === 0 && _date.getSeconds() === 0 && _date.getMilliseconds() === 0
-    _date = isStartOfDay ? _date : startOfDay(addDays(_date, 1))
+    if (typeof excludeStartDate !== 'boolean') {
+      // 民法第140条により、起算日を算出 (初日不算入の原則により、翌日から起算する)
+      // 00:00:00の場合、初日算入する(民法第140条ただし書)
+      const isStartOfDay = _date.getHours() === 0 && _date.getMinutes() === 0 && _date.getSeconds() === 0 && _date.getMilliseconds() === 0
+      excludeStartDate = !isStartOfDay
+    }
+    if (excludeStartDate) {
+      _date = startOfDay(addDays(_date, 1))
+    } else {
+      _date = startOfDay(_date)
+    }
   }
 
   // 年月を加算し、応当日があるか判断する
