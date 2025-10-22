@@ -97,6 +97,16 @@
         "types": "./dist/normalizeDuration/index.d.cts",
         "require": "./dist/normalizeDuration/index.cjs"
       }
+    },
+    "./subJapan": {
+      "import": {
+        "types": "./dist/subJapan/index.d.mts",
+        "default": "./dist/subJapan/index.mjs"
+      },
+      "require": {
+        "types": "./dist/subJapan/index.d.cts",
+        "require": "./dist/subJapan/index.cjs"
+      }
     }
   },
   "devDependencies": {
