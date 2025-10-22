@@ -244,4 +244,9 @@ describe('addJapan', () => {
   it('無効日', () => {
     expect(addJapan(new Date(Number.NaN), parseDuration('P1M'))).toEqual(new Date(Number.NaN))
   })
+
+  it('timezone', () => {
+    const source = new TZDate(2020, 7, 31, 10, 19, 50, TZ)
+    expect(addJapan(source, parseDuration('P1M'), { in: tz('Europe/Prague') }).toISOString()).toEqual('2020-10-01T00:00:00.000+02:00')
+  })
 })

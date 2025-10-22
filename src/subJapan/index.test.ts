@@ -56,6 +56,11 @@ describe('subJapan', () => {
     expect(subJapanDuration('2024-03-29T03:00:00', 'P1M', { preserveTimeOnZero: true })).toEqual(generateDate('2024-02-29T00:00:00'))
   })
 
+  it('timezone', () => {
+    const source = new TZDate(2020, 7, 31, 10, 19, 50, TZ)
+    expect(subJapan(source, parseDuration('P1M'), { in: tz('Europe/Prague') }).toISOString()).toEqual('2020-07-31T00:00:00.000+02:00')
+  })
+
   it('無効日', () => {
     expect(subJapan(new Date(Number.NaN), parseDuration('P1M'))).toEqual(new Date(Number.NaN))
   })

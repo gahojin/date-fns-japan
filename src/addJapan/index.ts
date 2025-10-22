@@ -68,9 +68,9 @@ export function addJapan<DateType extends Date, ResultDate extends Date = DateTy
       exclude = _date.getHours() !== 0 || _date.getMinutes() !== 0 || _date.getSeconds() !== 0 || _date.getMilliseconds() !== 0
     }
     if (exclude) {
-      _date = startOfDay(addDays(date, 1))
+      _date = startOfDay(addDays(_date, 1))
     } else {
-      _date = startOfDay(date)
+      _date = startOfDay(_date)
     }
   }
 
