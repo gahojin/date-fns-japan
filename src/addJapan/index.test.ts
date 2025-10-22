@@ -18,6 +18,11 @@ describe('addJapan', () => {
   it('example', () => {
     // Mon Aug 31 2020 10:19:50 + 1years,3months,2days,4weeks,5hours,6minutes,7seconds
     const source = new TZDate(2020, 7, 31, 10, 19, 50, TZ)
+
+    expect(add(source, { days: 1 })).toEqual(new TZDate(2020, 8, 1, 10, 19, 50, TZ))
+    expect(addJapan(source, { days: 1 })).toEqual(new TZDate(2020, 8, 2, 0, 0, 0, TZ))
+    expect(addJapan(source, { days: 0 })).toEqual(new TZDate(2020, 8, 1, 0, 0, 0, TZ))
+
     const duration: Duration = {
       years: 1,
       months: 3,
