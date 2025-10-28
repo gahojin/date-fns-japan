@@ -103,6 +103,11 @@ describe('addJapan', () => {
     expect(addJapanDuration('2020-08-31', 'P1Y1M')).toEqual(generateDate('2021-10-01T00:00:00'))
     expect(addJapanDuration('2024-06-01T18:00:00', 'PT30H')).toEqual(generateDate('2024-06-03T00:00:00'))
     expect(addJapanDuration('2024-06-01', 'P2Y')).toEqual(generateDate('2026-06-01T00:00:00'))
+
+    // preserveTimeOnZero=trueかつ、PT0Sの場合は、excludeStartDateの設定に関わらず、時刻維持されること
+    expect(addJapanDuration('2024-03-29T03:00:00', 'PT0S')).toEqual(generateDate('2024-03-30T00:00:00'))
+    expect(addJapanDuration('2024-03-29T03:00:00', 'PT0S', { preserveTimeOnZero: true })).toEqual(generateDate('2024-03-29T03:00:00'))
+    expect(addJapanDuration('2024-03-29T03:00:00', 'PT0S', { preserveTimeOnZero: false })).toEqual(generateDate('2024-03-30T00:00:00'))
   })
 
   it('民法139条/140条を無視し、常に初日参入する', () => {
@@ -171,6 +176,15 @@ describe('addJapan', () => {
     expect(addJapanDuration('2020-08-31', 'P1Y1M', { excludeStartDate: false })).toEqual(generateDate('2021-10-01T00:00:00'))
     expect(addJapanDuration('2024-06-01T18:00:00', 'PT30H', { excludeStartDate: false })).toEqual(generateDate('2024-06-03T00:00:00'))
     expect(addJapanDuration('2024-06-01', 'P2Y', { excludeStartDate: false })).toEqual(generateDate('2026-06-01T00:00:00'))
+
+    // preserveTimeOnZero=trueかつ、PT0Sの場合は、excludeStartDateの設定に関わらず、時刻維持されること
+    expect(addJapanDuration('2024-03-29T03:00:00', 'PT0S', { excludeStartDate: false })).toEqual(generateDate('2024-03-29T00:00:00'))
+    expect(addJapanDuration('2024-03-29T03:00:00', 'PT0S', { excludeStartDate: false, preserveTimeOnZero: true })).toEqual(
+      generateDate('2024-03-29T03:00:00'),
+    )
+    expect(addJapanDuration('2024-03-29T03:00:00', 'PT0S', { excludeStartDate: false, preserveTimeOnZero: false })).toEqual(
+      generateDate('2024-03-29T00:00:00'),
+    )
   })
 
   it('民法139条/140条を無視し、常に初日参入しない', () => {
@@ -239,6 +253,15 @@ describe('addJapan', () => {
     expect(addJapanDuration('2020-08-31', 'P1Y1M', { excludeStartDate: true })).toEqual(generateDate('2021-10-01T00:00:00'))
     expect(addJapanDuration('2024-06-01T18:00:00', 'PT30H', { excludeStartDate: true })).toEqual(generateDate('2024-06-03T00:00:00'))
     expect(addJapanDuration('2024-06-01', 'P2Y', { excludeStartDate: true })).toEqual(generateDate('2026-06-02T00:00:00'))
+
+    // preserveTimeOnZero=trueかつ、PT0Sの場合は、excludeStartDateの設定に関わらず、時刻維持されること
+    expect(addJapanDuration('2024-03-29T03:00:00', 'PT0S', { excludeStartDate: true })).toEqual(generateDate('2024-03-30T00:00:00'))
+    expect(addJapanDuration('2024-03-29T03:00:00', 'PT0S', { excludeStartDate: true, preserveTimeOnZero: true })).toEqual(
+      generateDate('2024-03-29T03:00:00'),
+    )
+    expect(addJapanDuration('2024-03-29T03:00:00', 'PT0S', { excludeStartDate: true, preserveTimeOnZero: false })).toEqual(
+      generateDate('2024-03-30T00:00:00'),
+    )
   })
 
   it('無効日', () => {
