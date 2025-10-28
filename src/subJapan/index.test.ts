@@ -50,6 +50,12 @@ describe('subJapan', () => {
     expect(subJapanDuration('2024-03-29T01:00:00', 'P1M')).toEqual(generateDate('2024-02-29T00:00:00'))
     expect(subJapanDuration('2023-03-29T03:00:00', 'P1MT1H')).toEqual(generateDate('2023-03-01T02:00:00'))
     expect(subJapanDuration('2024-03-29T03:00:00', 'P1MT1H')).toEqual(generateDate('2024-02-29T02:00:00'))
+    expect(subJapanDuration('2025-10-20T17:00:00', 'P1D')).toEqual(generateDate('2025-10-19T00:00:00'))
+    expect(subJapanDuration('2025-10-20T17:00:00', 'PT24H')).toEqual(generateDate('2025-10-19T17:00:00'))
+    expect(subJapanDuration('2025-10-20T17:00:00', 'PT0S')).toEqual(generateDate('2025-10-20T00:00:00'))
+    expect(subJapanDuration('2025-03-29', '-P1M')).toEqual(generateDate('2025-03-01T00:00:00'))
+    expect(subJapanDuration('2025-03-30', '-P1M')).toEqual(generateDate('2025-03-01T00:00:00'))
+    expect(subJapanDuration('2025-03-31', '-P1MT1H')).toEqual(generateDate('2025-02-28T23:00:00'))
 
     // preserveTimeOnZero=trueかつ、PT0Sの場合は、excludeStartDateの設定に関わらず、時刻維持されること
     expect(subJapanDuration('2024-03-29T03:00:00', 'PT0S')).toEqual(generateDate('2024-03-29T00:00:00'))

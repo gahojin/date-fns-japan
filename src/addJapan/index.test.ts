@@ -40,6 +40,7 @@ describe('addJapan', () => {
   it('民法に沿っているか', () => {
     // 当日
     expect(addJapanDuration('2020-06-01', 'P1D')).toEqual(generateDate('2020-06-02T00:00:00'))
+    expect(addJapanDuration('2020-06-01T01:00:00', 'P1D')).toEqual(generateDate('2020-06-03T00:00:00'))
     // 2日間
     expect(addJapanDuration('2020-06-01', 'P2D')).toEqual(generateDate('2020-06-03T00:00:00'))
     // 月末/2日間
@@ -113,6 +114,7 @@ describe('addJapan', () => {
   it('民法139条/140条を無視し、常に初日参入する', () => {
     // 当日
     expect(addJapanDuration('2020-06-01', 'P1D', { excludeStartDate: false })).toEqual(generateDate('2020-06-02T00:00:00'))
+    expect(addJapanDuration('2020-06-01T01:00:00', 'P1D', { excludeStartDate: false })).toEqual(generateDate('2020-06-02T00:00:00'))
     // 2日間
     expect(addJapanDuration('2020-06-01', 'P2D', { excludeStartDate: false })).toEqual(generateDate('2020-06-03T00:00:00'))
     // 月末/2日間
@@ -190,6 +192,7 @@ describe('addJapan', () => {
   it('民法139条/140条を無視し、常に初日参入しない', () => {
     // 当日 (6/2 24:00になる)
     expect(addJapanDuration('2020-06-01', 'P1D', { excludeStartDate: true })).toEqual(generateDate('2020-06-03T00:00:00'))
+    expect(addJapanDuration('2020-06-01T01:00:00', 'P1D', { excludeStartDate: true })).toEqual(generateDate('2020-06-03T00:00:00'))
     // 2日間
     expect(addJapanDuration('2020-06-01', 'P2D', { excludeStartDate: true })).toEqual(generateDate('2020-06-04T00:00:00'))
     // 月末/2日間
