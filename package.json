@@ -116,7 +116,7 @@
     "@commitlint/config-conventional": "20.0.0",
     "@date-fns/tz": "1.4.1",
     "@fast-check/vitest": "0.2.2",
-    "@types/node": "22.18.12",
+    "@types/node": "24.9.2",
     "@vitest/coverage-v8": "4.0.5",
     "date-fns": "4.1.0",
     "iso8601-duration": "2.1.3",
