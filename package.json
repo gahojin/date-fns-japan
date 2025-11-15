@@ -133,16 +133,5 @@
   },
   "peerDependencies": {
     "date-fns": "^4.0.0"
-  },
-  "pnpm": {
-    "ignoredBuiltDependencies": [
-      "esbuild"
-    ],
-    "onlyBuiltDependencies": [
-      "lefthook"
-    ],
-    "overrides": {
-      "@fast-check/vitest>vitest": "^1 || ^2 || ^3 || ^4"
-    }
   }
 }
