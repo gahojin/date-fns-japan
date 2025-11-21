@@ -119,7 +119,7 @@
     "date-fns": "4.1.0",
     "iso8601-duration": "2.1.3",
     "jest-extended": "7.0.0",
-    "lefthook": "2.0.3",
+    "lefthook": "2.0.4",
     "npm-check-updates": "19.1.2",
     "rolldown": "1.0.0-beta.51",
     "typescript": "5.9.3",
