@@ -110,10 +110,10 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.2",
-    "@biomejs/biome": "2.3.13",
+    "@biomejs/biome": "2.3.14",
     "@date-fns/tz": "1.4.1",
     "@fast-check/vitest": "0.2.4",
-    "@types/node": "24.10.9",
+    "@types/node": "24.10.10",
     "@vitest/coverage-v8": "4.0.18",
     "date-fns": "4.1.0",
     "iso8601-duration": "2.1.3",
