@@ -114,7 +114,7 @@
     "@date-fns/tz": "1.4.1",
     "@fast-check/vitest": "0.2.4",
     "@types/node": "24.10.15",
-    "@typescript/native-preview": "7.0.0-dev.20260226.1",
+    "@typescript/native-preview": "7.0.0-dev.20260227.1",
     "@vitest/coverage-v8": "4.0.18",
     "date-fns": "4.1.0",
     "iso8601-duration": "2.1.3",
