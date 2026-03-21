@@ -110,7 +110,7 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.2",
-    "@biomejs/biome": "2.4.6",
+    "@biomejs/biome": "2.4.7",
     "@date-fns/tz": "1.4.1",
     "@fast-check/vitest": "0.3.0",
     "@types/node": "24.12.0",
