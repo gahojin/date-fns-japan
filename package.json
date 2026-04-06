@@ -26,85 +26,57 @@
     "prepublishOnly": "pnpm run build",
     "lint": "biome check --write .",
     "check": "tsgo",
-    "check:packagejson": "pnpm attw --profile node16 --pack .",
+    "check:packagejson": "pnpm attw --profile esm-only --pack .",
     "test": "vitest --watch",
     "test:unit": "vitest --passWithNoTests --run --coverage",
     "bench": "vitest bench",
     "ncu": "mise run ncu"
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.cts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
       "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "require": "./dist/index.cjs"
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
       }
     },
     "./addJapan": {
       "import": {
-        "types": "./dist/addJapan/index.d.mts",
-        "default": "./dist/addJapan/index.mjs"
-      },
-      "require": {
-        "types": "./dist/addJapan/index.d.cts",
-        "require": "./dist/addJapan/index.cjs"
+        "types": "./dist/addJapan/index.d.ts",
+        "default": "./dist/addJapan/index.js"
       }
     },
     "./isAfterDay": {
       "import": {
-        "types": "./dist/isAfterDay/index.d.mts",
-        "default": "./dist/isAfterDay/index.mjs"
-      },
-      "require": {
-        "types": "./dist/isAfterDay/index.d.cts",
-        "require": "./dist/isAfterDay/index.cjs"
+        "types": "./dist/isAfterDay/index.d.ts",
+        "default": "./dist/isAfterDay/index.js"
       }
     },
     "./isBeforeDay": {
       "import": {
-        "types": "./dist/isBeforeDay/index.d.mts",
-        "default": "./dist/isBeforeDay/index.mjs"
-      },
-      "require": {
-        "types": "./dist/isBeforeDay/index.d.cts",
-        "require": "./dist/isBeforeDay/index.cjs"
+        "types": "./dist/isBeforeDay/index.d.ts",
+        "default": "./dist/isBeforeDay/index.js"
       }
     },
     "./isWithinGtfsCalendar": {
       "import": {
-        "types": "./dist/isWithinGtfsCalendar/index.d.mts",
-        "default": "./dist/isWithinGtfsCalendar/index.mjs"
-      },
-      "require": {
-        "types": "./dist/isWithinGtfsCalendar/index.d.cts",
-        "require": "./dist/isWithinGtfsCalendar/index.cjs"
+        "types": "./dist/isWithinGtfsCalendar/index.d.ts",
+        "default": "./dist/isWithinGtfsCalendar/index.js"
       }
     },
     "./normalizeDuration": {
       "import": {
-        "types": "./dist/normalizeDuration/index.d.mts",
-        "default": "./dist/normalizeDuration/index.mjs"
-      },
-      "require": {
-        "types": "./dist/normalizeDuration/index.d.cts",
-        "require": "./dist/normalizeDuration/index.cjs"
+        "types": "./dist/normalizeDuration/index.d.ts",
+        "default": "./dist/normalizeDuration/index.js"
       }
     },
     "./subJapan": {
       "import": {
-        "types": "./dist/subJapan/index.d.mts",
-        "default": "./dist/subJapan/index.mjs"
-      },
-      "require": {
-        "types": "./dist/subJapan/index.d.cts",
-        "require": "./dist/subJapan/index.cjs"
+        "types": "./dist/subJapan/index.d.ts",
+        "default": "./dist/subJapan/index.js"
       }
     }
   },
@@ -120,8 +92,7 @@
     "iso8601-duration": "2.1.3",
     "jest-extended": "7.0.0",
     "rolldown": "1.0.0-rc.12",
-    "unplugin-isolated-decl": "0.15.7",
-    "vite": "8.0.3",
+    "rolldown-plugin-dts": "0.23.2",
     "vitest": "4.1.2"
   },
   "peerDependencies": {
