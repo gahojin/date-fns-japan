@@ -1,5 +1,5 @@
 import { fc } from '@fast-check/vitest'
-import { normalizeDuration } from './index'
+import { normalizeDuration } from './index.js'
 
 describe('normalizeDuration', () => {
   it('example', () => {

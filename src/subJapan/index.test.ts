@@ -1,7 +1,7 @@
 import { TZDate, tz } from '@date-fns/tz'
 import { type Duration, parseISO, sub } from 'date-fns'
 import { parse as parseDuration } from 'iso8601-duration'
-import { type SubJapanOptions, subJapan } from './index'
+import { type SubJapanOptions, subJapan } from './index.js'
 
 const TZ = 'Asia/Tokyo'
 

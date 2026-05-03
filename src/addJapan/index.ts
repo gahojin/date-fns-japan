@@ -3,7 +3,7 @@ import { addDays } from 'date-fns/addDays'
 import { addMonths } from 'date-fns/addMonths'
 import { constructFrom } from 'date-fns/constructFrom'
 import { toDate } from 'date-fns/toDate'
-import { calcJapan } from '../_lib/calcJapan'
+import { calcJapan } from '~/_lib/calcJapan.js'
 
 /**
  * The {@link addJapan} function options.

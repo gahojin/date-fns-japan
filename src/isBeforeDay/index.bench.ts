@@ -1,5 +1,5 @@
 import { bench, describe } from 'vitest'
-import { isBeforeDay } from './index'
+import { isBeforeDay } from './index.js'
 
 describe('benchmark: isBeforeDay', () => {
   bench('example', () => {
