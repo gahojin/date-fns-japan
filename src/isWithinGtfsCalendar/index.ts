@@ -1,9 +1,9 @@
 import type { ContextOptions, DateArg } from 'date-fns'
 import { getDay } from 'date-fns/getDay'
 import { isSameDay } from 'date-fns/isSameDay'
-import { isAfterDay } from '../isAfterDay'
-import { isBeforeDay } from '../isBeforeDay'
-import type { GtfsCalendar } from '../types'
+import { isAfterDay } from '~/isAfterDay/index.js'
+import { isBeforeDay } from '~/isBeforeDay/index.js'
+import type { GtfsCalendar } from '~/types.js'
 
 /**
  * The {@link isWithinGtfsCalendar} function options.

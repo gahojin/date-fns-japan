@@ -1,6 +1,6 @@
 import type { ContextOptions, DateArg } from 'date-fns'
 import { startOfDay } from 'date-fns/startOfDay'
-import { normalizeDates } from '../_lib/normalize'
+import { normalizeDates } from '~/_lib/normalize.js'
 
 /**
  * The {@link isAfterDay} function options.

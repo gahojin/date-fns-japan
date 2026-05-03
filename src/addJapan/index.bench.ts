@@ -1,7 +1,7 @@
 import { TZDate } from '@date-fns/tz'
 import type { Duration } from 'date-fns'
 import { bench, describe } from 'vitest'
-import { addJapan } from './index'
+import { addJapan } from './index.js'
 
 const TZ = 'Asia/Tokyo'
 

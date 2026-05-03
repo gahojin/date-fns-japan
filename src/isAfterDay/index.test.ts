@@ -1,7 +1,7 @@
 import { TZDate } from '@date-fns/tz'
 import { fc } from '@fast-check/vitest'
 import { differenceInCalendarDays, isSameDay, startOfDay } from 'date-fns'
-import { isAfterDay } from './index'
+import { isAfterDay } from './index.js'
 
 describe('isAfterDay', () => {
   it('example', () => {

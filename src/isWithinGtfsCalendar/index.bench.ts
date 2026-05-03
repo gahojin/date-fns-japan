@@ -1,5 +1,5 @@
 import { bench, describe } from 'vitest'
-import { isWithinGtfsCalendar } from './index'
+import { isWithinGtfsCalendar } from './index.js'
 
 describe('benchmark: isWithinGtfsCalendar', () => {
   bench('example', () => {
