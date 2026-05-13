@@ -6,14 +6,16 @@ on:
     types:
       - published
 
-permissions:
-  contents: read
-  id-token: write
+permissions: {}
 
 jobs:
   release:
     timeout-minutes: 10
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
 
     strategy:
       matrix:
