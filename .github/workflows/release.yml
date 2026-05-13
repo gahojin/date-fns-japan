@@ -10,6 +10,7 @@ permissions: {}
 
 jobs:
   release:
+    if: github.repository == 'gahojin/date-fns-japan'
     timeout-minutes: 10
     runs-on: ubuntu-latest
 
