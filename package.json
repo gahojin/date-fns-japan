@@ -85,7 +85,7 @@
     "@biomejs/biome": "2.4.14",
     "@date-fns/tz": "1.4.1",
     "@fast-check/vitest": "0.4.1",
-    "@types/node": "24.12.2",
+    "@types/node": "24.12.3",
     "@vitest/coverage-v8": "4.1.5",
     "date-fns": "4.1.0",
     "iso8601-duration": "2.1.3",
