@@ -9,7 +9,7 @@ on:
 permissions: {}
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [20, 22, 24]
+        node-version: [22, 24]
 
     steps:
       - name: Checkout
@@ -58,7 +58,7 @@ jobs:
         run: pnpm run check:packagejson
 
       - name: Run Linter & Formatter
-        run: pnpm biome ci .
+        run: pnpm run lint:ci
 
       - name: Run Typescript check
         run: pnpm run check
