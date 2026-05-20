@@ -55,7 +55,7 @@
         "noSecrets": "off"
       }
     },
-    "includes": ["**", "!**/jest-extended.d.ts"]
+    "includes": ["**"]
   },
   "files": {
     "includes": ["**", "!**/dist/**/*", "!**/build/**/*", "!**/coverage/**/*", "!**/.tsup/**/*"]
