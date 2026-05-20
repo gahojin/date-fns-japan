@@ -5,20 +5,20 @@ import { isAfterDay } from './index.js'
 
 describe('isAfterDay', () => {
   it('example', () => {
-    expect(isAfterDay(new Date(1989, 6, 10), new Date(1987, 1, 11))).toBeTrue()
+    expect(isAfterDay(new Date(1989, 6, 10), new Date(1987, 1, 11))).toBe(true)
   })
 
   it('境界チェック', () => {
-    expect(isAfterDay(new Date(2024, 10, 7), new Date(2024, 10, 6))).toBeTrue()
-    expect(isAfterDay(new Date(2024, 10, 7), new Date(2024, 10, 7))).toBeFalse()
-    expect(isAfterDay(new Date(2024, 10, 7), new Date(2024, 10, 8))).toBeFalse()
+    expect(isAfterDay(new Date(2024, 10, 7), new Date(2024, 10, 6))).toBe(true)
+    expect(isAfterDay(new Date(2024, 10, 7), new Date(2024, 10, 7))).toBe(false)
+    expect(isAfterDay(new Date(2024, 10, 7), new Date(2024, 10, 8))).toBe(false)
 
-    expect(isAfterDay(new Date(2024, 10, 7, 0, 0, 0), new Date(2024, 10, 6, 23, 59, 59))).toBeTrue()
-    expect(isAfterDay(new Date(2024, 10, 7, 10, 0, 0), new Date(2024, 10, 6, 23, 59, 59))).toBeTrue()
-    expect(isAfterDay(new Date(2024, 10, 7, 23, 59, 59), new Date(2024, 10, 6, 23, 59, 59))).toBeTrue()
-    expect(isAfterDay(new Date(2024, 10, 7, 10, 0, 0), new Date(2024, 10, 7, 0, 0, 0))).toBeFalse()
-    expect(isAfterDay(new Date(2024, 10, 7, 10, 0, 0), new Date(2024, 10, 7, 23, 59, 59))).toBeFalse()
-    expect(isAfterDay(new Date(2024, 10, 7, 10, 0, 0), new Date(2024, 10, 8, 0, 0, 0))).toBeFalse()
+    expect(isAfterDay(new Date(2024, 10, 7, 0, 0, 0), new Date(2024, 10, 6, 23, 59, 59))).toBe(true)
+    expect(isAfterDay(new Date(2024, 10, 7, 10, 0, 0), new Date(2024, 10, 6, 23, 59, 59))).toBe(true)
+    expect(isAfterDay(new Date(2024, 10, 7, 23, 59, 59), new Date(2024, 10, 6, 23, 59, 59))).toBe(true)
+    expect(isAfterDay(new Date(2024, 10, 7, 10, 0, 0), new Date(2024, 10, 7, 0, 0, 0))).toBe(false)
+    expect(isAfterDay(new Date(2024, 10, 7, 10, 0, 0), new Date(2024, 10, 7, 23, 59, 59))).toBe(false)
+    expect(isAfterDay(new Date(2024, 10, 7, 10, 0, 0), new Date(2024, 10, 8, 0, 0, 0))).toBe(false)
   })
 
   it('異なるタイムゾーン', () => {
@@ -42,7 +42,7 @@ describe('isAfterDay', () => {
 
   it('無効日', () => {
     // 常にfalseが返ること
-    expect(isAfterDay(new Date(Number.NaN), new Date())).toBeFalse()
-    expect(isAfterDay(new Date(), new Date(Number.NaN))).toBeFalse()
+    expect(isAfterDay(new Date(Number.NaN), new Date())).toBe(false)
+    expect(isAfterDay(new Date(), new Date(Number.NaN))).toBe(false)
   })
 })

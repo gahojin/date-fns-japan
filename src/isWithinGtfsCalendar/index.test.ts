@@ -33,14 +33,14 @@ const setWeek = (condition: GtfsCalendar, week: number, value?: boolean) => {
 
 describe('isWithinGtfsCalendar', () => {
   it('example', () => {
-    expect(isWithinGtfsCalendar(new Date(2024, 10, 22), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), fri: true })).toBeTrue()
+    expect(isWithinGtfsCalendar(new Date(2024, 10, 22), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), fri: true })).toBe(true)
   })
 
   it('境界チェック', () => {
-    expect(isWithinGtfsCalendar(new Date(2024, 10, 1), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30) })).toBeFalse()
-    expect(isWithinGtfsCalendar(new Date(2024, 10, 1), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), fri: true })).toBeTrue()
-    expect(isWithinGtfsCalendar(new Date(2024, 10, 30), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30) })).toBeFalse()
-    expect(isWithinGtfsCalendar(new Date(2024, 10, 30), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), sat: true })).toBeTrue()
+    expect(isWithinGtfsCalendar(new Date(2024, 10, 1), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30) })).toBe(false)
+    expect(isWithinGtfsCalendar(new Date(2024, 10, 1), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), fri: true })).toBe(true)
+    expect(isWithinGtfsCalendar(new Date(2024, 10, 30), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30) })).toBe(false)
+    expect(isWithinGtfsCalendar(new Date(2024, 10, 30), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), sat: true })).toBe(true)
 
     expect(
       isWithinGtfsCalendar(new Date(2024, 10, 2), {
@@ -48,7 +48,7 @@ describe('isWithinGtfsCalendar', () => {
         endDate: new Date(2024, 10, 30),
         includes: [new Date(2024, 10, 2)],
       }),
-    ).toBeTrue()
+    ).toBe(true)
     expect(
       isWithinGtfsCalendar(new Date(2024, 10, 1), {
         startDate: new Date(2024, 10, 1),
@@ -56,15 +56,15 @@ describe('isWithinGtfsCalendar', () => {
         fri: true,
         excludes: [new Date(2024, 10, 1)],
       }),
-    ).toBeFalse()
+    ).toBe(false)
 
-    expect(isWithinGtfsCalendar(new Date(2024, 10, 3), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), sun: true })).toBeTrue()
-    expect(isWithinGtfsCalendar(new Date(2024, 10, 4), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), mon: true })).toBeTrue()
-    expect(isWithinGtfsCalendar(new Date(2024, 10, 5), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), tue: true })).toBeTrue()
-    expect(isWithinGtfsCalendar(new Date(2024, 10, 6), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), wed: true })).toBeTrue()
-    expect(isWithinGtfsCalendar(new Date(2024, 10, 7), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), thu: true })).toBeTrue()
-    expect(isWithinGtfsCalendar(new Date(2024, 10, 8), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), fri: true })).toBeTrue()
-    expect(isWithinGtfsCalendar(new Date(2024, 10, 9), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), sat: true })).toBeTrue()
+    expect(isWithinGtfsCalendar(new Date(2024, 10, 3), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), sun: true })).toBe(true)
+    expect(isWithinGtfsCalendar(new Date(2024, 10, 4), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), mon: true })).toBe(true)
+    expect(isWithinGtfsCalendar(new Date(2024, 10, 5), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), tue: true })).toBe(true)
+    expect(isWithinGtfsCalendar(new Date(2024, 10, 6), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), wed: true })).toBe(true)
+    expect(isWithinGtfsCalendar(new Date(2024, 10, 7), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), thu: true })).toBe(true)
+    expect(isWithinGtfsCalendar(new Date(2024, 10, 8), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), fri: true })).toBe(true)
+    expect(isWithinGtfsCalendar(new Date(2024, 10, 9), { startDate: new Date(2024, 10, 1), endDate: new Date(2024, 10, 30), sat: true })).toBe(true)
   })
 
   it('プロパティテスト', () => {
@@ -83,7 +83,7 @@ describe('isWithinGtfsCalendar', () => {
           // 曜日チェックが行われること
           const weekCondition = { startDate, endDate, mon: true, tue: true, wed: true, thu: true, fri: true, sat: true, sun: true }
           setWeek(weekCondition, getDay(targetDate), false)
-          expect(isWithinGtfsCalendar(targetDate, weekCondition)).toBeFalse()
+          expect(isWithinGtfsCalendar(targetDate, weekCondition)).toBe(false)
 
           // 対象日チェックが行われること (無効日の場合、対象日とならない)
           const includeCondition = { startDate, endDate, includes: [targetDate] }
@@ -116,15 +116,15 @@ describe('isWithinGtfsCalendar', () => {
     const endDate = new Date('2099-12-31T23:59:59.999Z')
 
     const allWeeksCondition = { startDate, endDate, mon: true, tue: true, wed: true, thu: true, fri: true, sat: true, sun: true }
-    expect(isWithinGtfsCalendar(targetDate, allWeeksCondition)).toBeFalse()
+    expect(isWithinGtfsCalendar(targetDate, allWeeksCondition)).toBe(false)
 
     // 曜日チェックが行われること
     const weekCondition = { startDate, endDate, mon: true, tue: true, wed: true, thu: true, fri: true, sat: true, sun: true }
-    expect(isWithinGtfsCalendar(targetDate, weekCondition)).toBeFalse()
+    expect(isWithinGtfsCalendar(targetDate, weekCondition)).toBe(false)
 
     // 対象日チェックが行われること (無効日の場合、対象日とならない)
     const includeCondition = { startDate, endDate, includes: [targetDate] }
-    expect(isWithinGtfsCalendar(targetDate, includeCondition)).toBeFalse()
+    expect(isWithinGtfsCalendar(targetDate, includeCondition)).toBe(false)
 
     // 対象外日チェックが行われること (無効日の場合、対象外日とならない)
     const excludeCondition = {
@@ -139,6 +139,6 @@ describe('isWithinGtfsCalendar', () => {
       sat: true,
       sun: true,
     }
-    expect(isWithinGtfsCalendar(targetDate, excludeCondition)).toBeFalse()
+    expect(isWithinGtfsCalendar(targetDate, excludeCondition)).toBe(false)
   })
 })
