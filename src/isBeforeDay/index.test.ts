@@ -5,20 +5,20 @@ import { isBeforeDay } from './index.js'
 
 describe('isBeforeDay', () => {
   it('example', () => {
-    expect(isBeforeDay(new Date(1989, 6, 10), new Date(1987, 1, 11))).toBeFalse()
+    expect(isBeforeDay(new Date(1989, 6, 10), new Date(1987, 1, 11))).toBe(false)
   })
 
   it('境界チェック', () => {
-    expect(isBeforeDay(new Date(2024, 10, 7), new Date(2024, 10, 6))).toBeFalse()
-    expect(isBeforeDay(new Date(2024, 10, 7), new Date(2024, 10, 7))).toBeFalse()
-    expect(isBeforeDay(new Date(2024, 10, 7), new Date(2024, 10, 8))).toBeTrue()
+    expect(isBeforeDay(new Date(2024, 10, 7), new Date(2024, 10, 6))).toBe(false)
+    expect(isBeforeDay(new Date(2024, 10, 7), new Date(2024, 10, 7))).toBe(false)
+    expect(isBeforeDay(new Date(2024, 10, 7), new Date(2024, 10, 8))).toBe(true)
 
-    expect(isBeforeDay(new Date(2024, 10, 7, 0, 0, 0), new Date(2024, 10, 6, 23, 59, 59))).toBeFalse()
-    expect(isBeforeDay(new Date(2024, 10, 7, 10, 0, 0), new Date(2024, 10, 6, 23, 59, 59))).toBeFalse()
-    expect(isBeforeDay(new Date(2024, 10, 7, 23, 59, 59), new Date(2024, 10, 6, 23, 59, 59))).toBeFalse()
-    expect(isBeforeDay(new Date(2024, 10, 7, 10, 0, 0), new Date(2024, 10, 7, 0, 0, 0))).toBeFalse()
-    expect(isBeforeDay(new Date(2024, 10, 7, 10, 0, 0), new Date(2024, 10, 7, 23, 59, 59))).toBeFalse()
-    expect(isBeforeDay(new Date(2024, 10, 7, 10, 0, 0), new Date(2024, 10, 8, 0, 0, 0))).toBeTrue()
+    expect(isBeforeDay(new Date(2024, 10, 7, 0, 0, 0), new Date(2024, 10, 6, 23, 59, 59))).toBe(false)
+    expect(isBeforeDay(new Date(2024, 10, 7, 10, 0, 0), new Date(2024, 10, 6, 23, 59, 59))).toBe(false)
+    expect(isBeforeDay(new Date(2024, 10, 7, 23, 59, 59), new Date(2024, 10, 6, 23, 59, 59))).toBe(false)
+    expect(isBeforeDay(new Date(2024, 10, 7, 10, 0, 0), new Date(2024, 10, 7, 0, 0, 0))).toBe(false)
+    expect(isBeforeDay(new Date(2024, 10, 7, 10, 0, 0), new Date(2024, 10, 7, 23, 59, 59))).toBe(false)
+    expect(isBeforeDay(new Date(2024, 10, 7, 10, 0, 0), new Date(2024, 10, 8, 0, 0, 0))).toBe(true)
   })
 
   it('異なるタイムゾーン', () => {
@@ -42,7 +42,7 @@ describe('isBeforeDay', () => {
 
   it('無効日', () => {
     // 常にfalseが返ること
-    expect(isBeforeDay(new Date(Number.NaN), new Date())).toBeFalse()
-    expect(isBeforeDay(new Date(), new Date(Number.NaN))).toBeFalse()
+    expect(isBeforeDay(new Date(Number.NaN), new Date())).toBe(false)
+    expect(isBeforeDay(new Date(), new Date(Number.NaN))).toBe(false)
   })
 })
