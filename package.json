@@ -21,7 +21,7 @@
     "provenance": true
   },
   "scripts": {
-    "postinstall": "pnpm biome migrate --write",
+    "prepare": "biome migrate --write",
     "build": "vite build",
     "prepublishOnly": "pnpm run build",
     "lint": "biome check --write",
