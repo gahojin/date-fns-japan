@@ -22,7 +22,7 @@ export interface IsBeforeDayOptions extends ContextOptions<Date> {}
  * const result = isBeforeDay(new Date(1989, 6, 10), new Date(1987, 1, 11))
  * //=> false
  */
-export function isBeforeDay(date: DateArg<Date> & {}, dateToCompare: DateArg<Date> & {}, options?: IsBeforeDayOptions | undefined): boolean {
+export function isBeforeDay(date: DateArg<Date>, dateToCompare: DateArg<Date>, options?: IsBeforeDayOptions | undefined): boolean {
   const [dateLeft_, dateRight_] = normalizeDates(options?.in, date, dateToCompare)
   return +startOfDay(dateLeft_) < +startOfDay(dateRight_)
 }

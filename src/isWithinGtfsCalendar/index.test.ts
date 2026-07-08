@@ -1,3 +1,4 @@
+import { TZDate, tz } from '@date-fns/tz'
 import { fc } from '@fast-check/vitest'
 import { getDay, isValid, startOfDay } from 'date-fns'
 import type { GtfsCalendar } from '~/types.js'
@@ -140,5 +141,23 @@ describe('isWithinGtfsCalendar', () => {
       sun: true,
     }
     expect(isWithinGtfsCalendar(targetDate, excludeCondition)).toBe(false)
+  })
+
+  it('timezone (options.in)', () => {
+    const TZ = 'Asia/Tokyo'
+    const date = new TZDate(2024, 10, 22, 0, 0, 0, TZ)
+    const calendar: GtfsCalendar = {
+      startDate: new TZDate(2024, 10, 1, 0, 0, 0, TZ),
+      endDate: new TZDate(2024, 10, 30, 0, 0, 0, TZ),
+      fri: true,
+    }
+
+    // 全て同じタイムゾーンなら一致する
+    expect(isWithinGtfsCalendar(date, calendar, { in: tz(TZ) })).toBe(true)
+
+    // options.in で別のタイムゾーン（Prague: UTC+1/2）を指定
+    // 2024-11-22 00:00:00 Tokyo は 2024-11-21 16:00:00 Prague
+    // Pragueにおいて、11-21は木曜日なので、fri: true の条件に合致しなくなる
+    expect(isWithinGtfsCalendar(date, calendar, { in: tz('Europe/Prague') })).toBe(false)
   })
 })

@@ -109,6 +109,12 @@ describe('addJapan', () => {
     expect(addJapanDuration('2024-03-29T03:00:00', 'PT0S')).toEqual(generateDate('2024-03-30T00:00:00'))
     expect(addJapanDuration('2024-03-29T03:00:00', 'PT0S', { preserveTimeOnZero: true })).toEqual(generateDate('2024-03-29T03:00:00'))
     expect(addJapanDuration('2024-03-29T03:00:00', 'PT0S', { preserveTimeOnZero: false })).toEqual(generateDate('2024-03-30T00:00:00'))
+
+    // 閏年/月末のエッジケース (民法143条)
+    // 2024年2月29日(閏日)の1年後は、2025年2月28日(満了) -> 2025年3月1日0時
+    expect(addJapanDuration('2024-02-29', 'P1Y')).toEqual(generateDate('2025-03-01T00:00:00'))
+    // 2024年2月29日の1ヶ月後は、2024年3月28日(満了) -> 2024年3月29日0時
+    expect(addJapanDuration('2024-02-29', 'P1M')).toEqual(generateDate('2024-03-29T00:00:00'))
   })
 
   it('民法139条/140条を無視し、常に初日参入する', () => {
@@ -187,6 +193,12 @@ describe('addJapan', () => {
     expect(addJapanDuration('2024-03-29T03:00:00', 'PT0S', { excludeStartDate: false, preserveTimeOnZero: false })).toEqual(
       generateDate('2024-03-29T00:00:00'),
     )
+
+    // 閏年/月末のエッジケース (民法143条)
+    // 2024年2月29日(閏日)の1年後は、2025年2月28日(満了) -> 2025年3月1日0時
+    expect(addJapanDuration('2024-02-29', 'P1Y', { excludeStartDate: false })).toEqual(generateDate('2025-03-01T00:00:00'))
+    // 2024年2月29日の1ヶ月後は、2024年3月28日(満了) -> 2024年3月29日0時
+    expect(addJapanDuration('2024-02-29', 'P1M', { excludeStartDate: false })).toEqual(generateDate('2024-03-29T00:00:00'))
   })
 
   it('民法139条/140条を無視し、常に初日参入しない', () => {

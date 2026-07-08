@@ -29,8 +29,11 @@ export const calcJapan = (
       if (typeof exclude !== 'boolean') {
         // 民法第140条により、起算日を算出 (初日不算入の原則により、翌日から起算する)
         // 00:00:00の場合、初日算入する(民法第140条ただし書)
+        // ただし書に該当する場合(00:00:00)は exclude は false となり、翌日加算されない
         exclude = date.getHours() !== 0 || date.getMinutes() !== 0 || date.getSeconds() !== 0 || date.getMilliseconds() !== 0
       }
+      // 期間の加算(excludeAddDay=true) かつ 初日不算入(exclude=true) の場合、翌日から起算するため+1日する
+      // 期間の減算(excludeAddDay=false) かつ 初日算入(exclude=false) の場合、dateを初日扱いにするため、翌日から起算するため+1日する
       _date = startOfDay(excludeAddDay === exclude ? addDays(_date, 1) : _date)
     }
   }
