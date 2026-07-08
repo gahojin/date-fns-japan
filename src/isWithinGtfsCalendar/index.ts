@@ -29,7 +29,7 @@ export interface IsWithinGtfsCalendarOptions extends ContextOptions<Date> {}
  * })
  * //=> true
  */
-export function isWithinGtfsCalendar(date: DateArg<Date> & {}, calendar: GtfsCalendar, options?: IsWithinGtfsCalendarOptions | undefined): boolean {
+export function isWithinGtfsCalendar(date: DateArg<Date>, calendar: GtfsCalendar, options?: IsWithinGtfsCalendarOptions | undefined): boolean {
   // 期間外
   if (isBeforeDay(date, calendar.startDate, options) || isAfterDay(date, calendar.endDate, options)) {
     return false

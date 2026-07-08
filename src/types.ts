@@ -1,8 +1,9 @@
+import type { DateArg } from 'date-fns'
 export interface GtfsCalendar {
   /** 期間開始日 */
-  startDate: Date
+  startDate: DateArg<Date>
   /** 期間終了日 */
-  endDate: Date
+  endDate: DateArg<Date>
   /** 月曜日 */
   mon?: boolean | undefined | null
   /** 火曜日 */
@@ -18,7 +19,7 @@ export interface GtfsCalendar {
   /** 日曜日 */
   sun?: boolean | undefined | null
   /** 対象日 (期間内の日付であること) */
-  includes?: Date[] | undefined | null
+  includes?: DateArg<Date>[] | undefined | null
   /** 対象外日 (期間内の日付であること) */
-  excludes?: Date[] | undefined | null
+  excludes?: DateArg<Date>[] | undefined | null
 }
