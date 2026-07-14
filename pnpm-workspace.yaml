@@ -7,9 +7,9 @@ dedupePeers: true
 catalog:
   date-fns: 5.0.0-alpha.0
   iso8601-duration: 2.1.4
-  typescript: 6.0.3
-  unplugin-dts: 1.0.3
-  vite: 8.1.2
+  rolldown: 1.1.5
+  rolldown-plugin-dts: 0.27.5
+  typescript: 7.0.2
   vitest: &vitest_ver 4.1.9
   '@biomejs/biome': 2.5.1
   '@date-fns/tz': 1.5.0
