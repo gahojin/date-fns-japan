@@ -7,7 +7,8 @@ const inputIndexFiles = Object.keys(pkg.exports)
   .filter((entry) => !entry.endsWith('.json'))
   .map((entry) => {
     const name = path.basename(entry)
-    return [path.relative('.', `${name}/index`), path.resolve('src', `${name}/index.ts`)]
+    const chunkName = name === '.' ? 'index' : `${name}/index`
+    return [chunkName, path.resolve('src', name, 'index.ts')]
   })
 
 export default defineConfig([
