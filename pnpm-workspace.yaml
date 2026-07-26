@@ -1,5 +1,5 @@
 packages:
-  - packages/**
+  - .
 
 # 重複排除
 dedupePeers: true
@@ -8,7 +8,7 @@ catalog:
   date-fns: 5.0.0-alpha.0
   iso8601-duration: 2.1.4
   rolldown: 1.2.0
-  rolldown-plugin-dts: 0.27.10
+  rolldown-plugin-dts: 0.27.14
   typescript: 7.0.2
   vitest: &vitest_ver 4.1.10
   '@biomejs/biome': 2.5.4
@@ -16,6 +16,9 @@ catalog:
   '@fast-check/vitest': 0.4.1
   '@types/node': 26.1.1
   '@vitest/coverage-v8': *vitest_ver
+
+overrides:
+  rolldown: 'catalog:'
 
 # リリースから一定時間経過していないか、信頼性低下したパッケージはインストールしない
 minimumReleaseAge: 2880 # 2d
