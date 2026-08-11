@@ -6,6 +6,10 @@ on:
   push:
     branches: ['main']
 
+env:
+  # minimumPackageAge制御はpnpm側で行う
+  SAFE_CHAIN_MINIMUM_PACKAGE_AGE_HOURS: 0
+
 permissions: {}
 
 concurrency:
