@@ -237,3 +237,9 @@ vite.config.ts.timestamp-*
 
 # Turborepo
 .turbo
+
+# gemini-cli settings
+.gemini/
+
+# GitHub App credentials
+gha-creds-*.json
