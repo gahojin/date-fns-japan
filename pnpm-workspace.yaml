@@ -14,7 +14,7 @@ catalog:
   '@biomejs/biome': 2.5.10
   '@date-fns/tz': 1.5.0
   '@fast-check/vitest': 0.4.1
-  '@types/node': 26.2.0
+  '@types/node': 26.3.0
   '@vitest/coverage-v8': *vitest_ver
 
 overrides:
