@@ -20,6 +20,8 @@ updates:
       # Node.jsのメジャーバージョンは変更しない
       - dependency-name: "@types/node"
         update-types: ["version-update:semver-major"]
+      # dependabotがアップデート失敗するため、vitestのサブパッケージは対象としない
+      - dependency-name: "@vitest/*"
     schedule:
       interval: "weekly"
     cooldown:
