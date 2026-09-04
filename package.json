@@ -96,5 +96,5 @@
   "peerDependencies": {
     "date-fns": "^4 || 5.0.0-alpha.0"
   },
-  "packageManager": "pnpm@11.21.0"
+  "packageManager": "pnpm@11.24.0"
 }
