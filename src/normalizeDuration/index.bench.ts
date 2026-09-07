@@ -1,8 +1,8 @@
-import { bench, describe } from 'vitest'
+import { test } from 'vitest'
 import { normalizeDuration } from '~/normalizeDuration/index.js'
 
-describe('benchmark: normalizeDuration', () => {
-  bench('example', () => {
+test('benchmark: normalizeDuration', async ({ bench }) => {
+  await bench('normalizeDuration', () => {
     normalizeDuration({ minutes: 60 })
-  })
+  }).run()
 })
