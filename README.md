@@ -21,6 +21,21 @@ const result = addJapan(new Date(2020, 7, 31, 10, 19, 50), {
 //=> Sat Jan 01 2022 00:00:00
 ```
 
+### subJapan
+ 
+法令では、期間の減算は定められていないため、加算と類似の処理を行う
+ 
+```ts
+// 2020年8月31日 10:19:50 から以下の期間を減算する
+const result = subJapan(new Date(2020, 7, 31, 10, 19, 50), {
+  years: 1,
+  months: 3,
+  weeks: 4,
+  days: 3,
+})
+//=> Tue Apr 30 2019 00:00:00
+```
+
 ### isAfterDay
 
 指定された日が、比較対象日より後の日か返す
@@ -37,6 +52,19 @@ const result = isAfterDay(new Date(1989, 6, 10), new Date(1987, 1, 11))
 ```javascript
 const result = isBeforeDay(new Date(1989, 6, 10), new Date(1987, 1, 11))
 //=> false
+```
+
+### isWithinGtfsCalendar
+ 
+GTFSのカレンダーの範囲内か判定する
+ 
+```ts
+const result = isWithinGtfsCalendar(new Date(2024, 10, 22), {
+  startDate: new Date(2024, 10, 1),
+  endDate: new Date(2024, 10, 30),
+  fri: true,
+})
+//=> true
 ```
 
 ### normalizeDuration

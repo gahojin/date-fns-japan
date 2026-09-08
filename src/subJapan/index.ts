@@ -27,7 +27,7 @@ export interface SubJapanOptions<DateType extends Date = Date> extends ContextOp
  * @param duration - The object with years, months, weeks, days, hours, minutes, and seconds to be subtracted.
  * @param options - An object with options
  *
- * @returns The new date with the seconds subtracted
+ * @returns The new date with the years, months, weeks, days, hours, minutes, and seconds subtracted
  *
  * @example
  * // Subtract the following duration to 31 August 2020, 10:19:50
@@ -37,7 +37,7 @@ export interface SubJapanOptions<DateType extends Date = Date> extends ContextOp
  *   weeks: 4,
  *   days: 3,
  * })
- * //=> Mon Apr 30 2019 00:00:00
+ * //=> Tue Apr 30 2019 00:00:00
  */
 export function subJapan<DateType extends Date, ResultDate extends Date = DateType>(
   date: DateArg<DateType>,
