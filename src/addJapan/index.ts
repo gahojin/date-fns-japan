@@ -39,7 +39,7 @@ export interface AddJapanOptions<DateType extends Date = Date> extends ContextOp
  * @param duration - The object with years, months, weeks, days, hours, minutes, and seconds to be added.
  * @param options - An object with options
  *
- * @returns The new date with the seconds added
+ * @returns The new date with the years, months, weeks, days, hours, minutes, and seconds added
  *
  * @example
  * // Add the following duration to 31 August 2020, 10:19:50

@@ -30,7 +30,7 @@ describe('subJapan', () => {
     }
     const resultSub = sub(source, duration)
     const resultSubJapan = subJapan(source, duration)
-    // Mon Apr 30 2019 00:00:00
+    // Tue Apr 30 2019 00:00:00
     expect(resultSubJapan).toEqual(new TZDate(2019, 3, 30, 0, 0, 0, TZ))
     // Tue Apr 30 2019 10:19:50
     expect(resultSub).toEqual(new TZDate(2019, 3, 30, 10, 19, 50, TZ))

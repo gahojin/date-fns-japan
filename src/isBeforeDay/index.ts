@@ -15,7 +15,7 @@ export interface IsBeforeDayOptions extends ContextOptions<Date> {}
  * @param date - The date that should be after the other one to return true
  * @param dateToCompare - The date to compare with
  *
- * @returns The first date is after the second date
+ * @returns The first date is before the second date
  *
  * @example
  * // Is 10 July 1989 after 11 February 1987?

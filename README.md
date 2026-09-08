@@ -33,7 +33,7 @@ const result = subJapan(new Date(2020, 7, 31, 10, 19, 50), {
   weeks: 4,
   days: 3,
 })
-//=> Mon Apr 30 2019 00:00:00
+//=> Tue Apr 30 2019 00:00:00
 ```
 
 ### isAfterDay
