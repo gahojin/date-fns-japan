@@ -5,6 +5,7 @@ export default defineConfig({
     tsconfigPaths: true,
   },
   test: {
+    clearMocks: true,
     environment: 'node',
     globals: true,
     benchmark: {
