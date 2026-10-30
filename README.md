@@ -22,9 +22,9 @@ const result = addJapan(new Date(2020, 7, 31, 10, 19, 50), {
 ```
 
 ### subJapan
- 
+
 法令では、期間の減算は定められていないため、加算と類似の処理を行う
- 
+
 ```ts
 // 2020年8月31日 10:19:50 から以下の期間を減算する
 const result = subJapan(new Date(2020, 7, 31, 10, 19, 50), {
@@ -55,9 +55,9 @@ const result = isBeforeDay(new Date(1989, 6, 10), new Date(1987, 1, 11))
 ```
 
 ### isWithinGtfsCalendar
- 
+
 GTFSのカレンダーの範囲内か判定する
- 
+
 ```ts
 const result = isWithinGtfsCalendar(new Date(2024, 10, 22), {
   startDate: new Date(2024, 10, 1),
